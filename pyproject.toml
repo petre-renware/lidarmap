@@ -25,6 +25,18 @@ DevPage = "http://dev.renware.eu/lidarmap/"
 distribution = true
 
 
+[tool.pdm.scripts]
+#TODO all lines need be revised & updated for LidarMap system
+gen_tech_doc = {shell = "src/booklab/scripts/gen-api-doc.sh"}
+gen_app_routes = {shell = "src/booklab/scripts/gen-app-routes.sh"}
+gen_static_site = {shell = "src/booklab/scripts/master_site_build.sh"}
+build_site = { composite = [
+    "gen_tech_doc",
+    "gen_app_routes",
+    "gen_static_site"
+    ] }
+
+
 [tool.pdm.version]
 source = "file"
 path = "src/__version__.py"
