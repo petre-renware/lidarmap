@@ -1,7 +1,7 @@
 [project]
 name = "lidarmap"
 dynamic = ["version"]
-description = "Vectorial ma=s f4om Lidar(C) data.."
+description = "Vectorial maps from Lidar(C) data."
 
 authors = [
     {name = "Petre Iordanescu", email = "petre.iordanescu@gmail.com"},
@@ -11,35 +11,18 @@ readme = "README.md"
 license = {text = "MIT"}
 
 dependencies = [
-    "mkdocs>=1.6.1"
+    "mkdocs>=1.6.1",
+    "maturin>=1.12.4"
     ]
 
 
 [project.urls]
-HomePage = "...tbd"
+HomePage = "...tbd..."
 DevPage = "http://dev.renware.eu/lidarmap/"
 
 
 [tool.pdm]
 distribution = true
-
-
-[tool.pdm.scripts]
-gen_tech_doc = {shell = "src/booklab/scripts/gen-api-doc.sh"}
-gen_app_routes = {shell = "src/booklab/scripts/gen-app-routes.sh"}
-gen_static_site = {shell = "src/booklab/scripts/master_site_build.sh"}
-build_site = { composite = [
-    "gen_tech_doc",
-    "gen_app_routes",
-    "gen_static_site"
-    ] }
-build_all = { composite = [
-    "gen_tech_doc",
-    "gen_app_routes",
-    "gen_static_site",
-    "pdm build"
-    ] }
-bklab_srv = {shell = "src/booklab/scripts/server-run.sh"}  # run booklabd wsgi server
 
 
 [tool.pdm.version]
@@ -48,7 +31,7 @@ path = "src/__version__.py"
 
 
 [project.scripts]
-booklab = "booklab.__main__:main"
+lidarmap = "__main__:main"
 
 
 [build-system]
