@@ -1,0 +1,131 @@
+site_name: LidarMap
+site_author: 'Petre Iordanescu'
+copyright: 'Copyright (c) '
+
+
+nav:
+    - Home: 'index.md'
+    - Services:
+        - Catalog: 'services.md'
+        - Buy from RENware: 'http://www.renware.eu/resources.html#how-to-buy-from-renware' #NOTE not necessarily the best option but works
+    - Solutions:
+        - Catalog sample: 'solutions.md'
+        - Company full catalog: 'http://catalog.renware.eu'
+        - Buy from RENware: 'http://www.renware.eu/resources.html#how-to-buy-from-renware' #NOTE not necessarily the best option but works
+    - Resources: 'resources.md'
+    - Support: 'support.md'
+    - About: 'about.md'
+    - Contact: 'contact.md'
+
+
+
+
+
+
+
+
+
+markdown_extensions:
+    - admonition
+    - tables
+    - pymdownx.details
+    - pymdownx.superfences:
+        custom_fences: #NOTE: [petre iordanescu]: is very important to respect syntax ref `-` character at beginning of items (otherwise not right JSON result !)
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_code_format
+    - footnotes
+    - pymdownx.critic
+    - pymdownx.caret
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.tilde
+    - def_list
+    - attr_list
+    - md_in_html
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.tasklist:
+        custom_checkbox: true
+
+
+#NOTE required to render `mermaid` diagrams
+extra_javascript:
+  - optionalConfig.js
+  - https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js
+  - extra-loader.js
+
+
+
+plugins:
+    - search
+    - markdown-exec #NOTE allow for python & bash execution inside markdown (see `https://pypi.org/project/markdown-exec/`)
+    - include-markdown
+    #NOTE `print-site` is not needed in `ren portal` project
+    # - print-site: #NOTE: put print-site to the bottom of the plugins that may might alter your site navigation (affect order of sections in generated HTML)
+    #    add_to_navigation: true
+    #    print_page_title: 'Full SDEVEN Manual'
+    #    add_full_urls: true
+    #    add_table_of_contents: true
+    #NOTE `pdf-with-js` extension is not needed in RENware portal !!!
+    # - pdf-with-js:
+    #     enable: true
+
+
+
+#NOTE provide material theme
+theme:
+    logo: pictures/REN_stamp_logo_transparent.png
+    name: material
+    features:
+        - navigation.tabs #NOTE level 2 on left navigation side bar, level 1 on top navigation bar
+        - navigation.tracking
+        - navigation.tabs.sticky
+        - navigation.path
+        - toc.integrate #NOTE integrate TOC in left navbar
+        #- navigation.footer #NOTE do not enable this. It will show "Next & Prev" links on footer, useless for company portal...
+    palette:
+        primary: light blue # see https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/ for other color options
+    icon:
+        admonition:
+            note: fontawesome/solid/note-sticky
+            abstract: fontawesome/solid/book
+            info: fontawesome/solid/circle-info
+            tip: fontawesome/solid/bullhorn
+            success: fontawesome/solid/check
+            question: fontawesome/solid/circle-question
+            warning: fontawesome/solid/triangle-exclamation
+            failure: fontawesome/solid/bomb
+            danger: fontawesome/solid/skull
+            bug: fontawesome/solid/robot
+            example: fontawesome/solid/flask
+            quote: fontawesome/solid/quote-left
+
+
+
+#NOTE first is for social sites RENware links and can add other data here
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/renware/
+      name: RENware on LinkedIn
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/profile.php?id=100063714751973
+      name: RENware on Facebook
+
+
+
+#NOTE directory where start to search or markdown sources
+docs_dir: './doc_src'
+
+
+#NOTE root directory where to be generated portal (should be `./static_portal`)
+site_dir: './static_portal'
+
+
+
+#NOTE other useful configurations
+use_directory_urls: false #NOTE allow link between pages to work properly when used as OFFLINE deployment (ie, static site an "callable" as `file:///...`)
+
+
