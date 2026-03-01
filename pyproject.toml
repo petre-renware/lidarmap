@@ -12,7 +12,11 @@ license = {text = "MIT"}
 
 dependencies = [
     "mkdocs>=1.6.1",
-    "maturin>=1.12.4"
+    "maturin>=1.12.4",
+    "markdown-exec>=1.12.1",
+    "mkdocs-include-markdown-plugin>=7.2.1",
+    "pymdown-extensions>=10.21",
+    "mkdocs-material>=9.7.3"
     ]
 
 
