@@ -7,6 +7,7 @@ Initial start release
 - Python & Rust solution to generate vectorial maps from Lidar data
 ### Changelog
 ...wip
+* 0.0.dev7 - adjust pyrhon source directory to reflect a publishing package structure
 * 0.0.dev6 - initialid (as default) a rust dir
 * 0.0.dev5 - install mkdocs extensions
 * 0.0.dev4 - prepare mkdocs environment
